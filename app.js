@@ -1,6 +1,5 @@
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_week.geojson";
-//var queryUrl = "http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2014-01-01&endtime=" +
-//  "2014-01-02&maxlongitude=-69.52148437&minlongitude=-123.83789062&maxlatitude=48.74894534&minlatitude=25.16517337";
+
 d3.json(queryUrl, function(data) {
     createFeatures(data.features);
 });
@@ -31,27 +30,6 @@ function createFeatures(earthquakeData) {
             mag > 1 ? '#1b8a5a' :
             '#409eff';
     }
-
-    /*function fillColor(magnitude) {
-        if(magnitude < 1) {
-            return '#1d4877';
-        }
-        else if(magnitude >= 1 && magnitude < 2) {
-            return '#1b8a5a';
-        }
-        else if(magnitude >= 2 && magnitude < 3) {
-            return '#fbb021';
-        }
-        else if(magnitude >= 3 && magnitude < 4) {
-            return '#f68838';
-        }
-        else if(magnitude >= 4 && magnitude < 5) {
-            return '#ee3e32';
-        }
-        else if(magnitude >= 5) {
-            return '#898383';
-        }
-    }*/
 
     function pointToLayer(feature, latlng) {
         var markerOptions = {
